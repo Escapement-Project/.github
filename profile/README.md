@@ -17,7 +17,7 @@ NXP's MCU-Link is the first probe we support.
 
 A CMSIS-DAP probe built on a dual-core LPC55S69.
 
-- **[mculink-verge](https://github.com/Escapement-Project/mculink-verge)**: open firmware for NXP's MCU-Link, with two-pin cJTAG and up to 2.4x memory-read throughput through probe-rs via SWD @ 20MHz.
+- **[mculink-verge](https://github.com/Escapement-Project/mculink-verge)**: open firmware for NXP's MCU-Link, with two-pin cJTAG and up to 2.4x stock firmware's memory-read throughput through probe-rs via SWD at 20MHz.
 - **[verge](https://github.com/Escapement-Project/verge)**: MCU-Link update tool, as a command line or a window.
 - **[mculink-bench](https://github.com/Escapement-Project/mculink-bench)**: measurements that compare our firmware with stock, and the tools that take them.
 - **[mculink-stock-notes](https://github.com/Escapement-Project/mculink-stock-notes)**: observations of what NXP's stock firmware does, on USB and on the wire.
