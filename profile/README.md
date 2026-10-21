@@ -40,7 +40,7 @@ For the MCU-Link and the MCU-Link Pro:
 - SWD and four-wire JTAG
 - Two-pin cJTAG, IEEE 1149.7 OScan1
 - Read sampling calibration
-- SWO capture, and the onboard UARTs as USB serial ports: one on the MCU-Link, two on the Pro
+- SWO capture, and the onboard UARTs as USB serial ports up to 19.2 Mbaud: one on the MCU-Link, two on the Pro
 - The Pro's status LEDs, one of them showing which wire is in use
 - Updates without the ISP jumper, from stock and between our own builds
 - Throughput and wire-clock comparisons with stock
@@ -59,7 +59,7 @@ Longer term:
 
 - [ ] Our own USB IDs, from pid.codes
 - [ ] SWD reads at 50 MHz, to match writes
-- [ ] Faster block transfers, and the onboard UART above 2 Mbaud
+- [ ] Faster block transfers
 - [ ] MCU-Link Pro: the SPI, I2C and GPIO bridge
 - [ ] MCU-Link Pro: target power supply
 - [ ] MCU-Link Pro: energy measurement
