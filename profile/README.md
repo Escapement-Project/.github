@@ -11,11 +11,12 @@ can reproduce them.
 > The project is in development.
 > The implementation, benchmarks, and supporting notes will be published with the first release.
 
-NXP's MCU-Link is the first probe we support.
+NXP's MCU-Link and MCU-Link Pro are the first probes we support.
 
 ## MCU-Link
 
-A CMSIS-DAP probe built on a dual-core LPC55S69.
+A CMSIS-DAP probe built on a dual-core LPC55S69. One firmware image runs on both the MCU-Link
+and the MCU-Link Pro.
 
 The firmware generates SWD and JTAG transfer code at runtime for the requested clock rate.
 At a fast clock rate it calibrates read sampling on attach. Calibration measures the target's read
@@ -33,13 +34,14 @@ Through probe-rs over SWD at 20 MHz, it reads memory up to 2.4× faster than the
 
 ## Current capabilities
 
-For the MCU-Link:
+For the MCU-Link and the MCU-Link Pro:
 
 - CMSIS-DAP v2 over high-speed USB
 - SWD and four-wire JTAG
 - Two-pin cJTAG, IEEE 1149.7 OScan1
 - Read sampling calibration
-- SWO capture, and the onboard UART as a USB serial port
+- SWO capture, and the onboard UARTs as USB serial ports: one on the MCU-Link, two on the Pro
+- The Pro's status LEDs, one of them showing which wire is in use
 - Updates without the ISP jumper, from stock and between our own builds
 - Throughput and wire-clock comparisons with stock
 - Update tool board detection, signature verification, batch updates and flashing
@@ -50,7 +52,7 @@ Before the first release:
 
 - [ ] Firmware signing in CI for the updater
 - [ ] Update tool CI builds
-- [ ] MCU-Link Pro support
+- [x] MCU-Link Pro support
 - [ ] cJTAG OScan2 and OScan5 support
 
 Longer term:
@@ -58,6 +60,10 @@ Longer term:
 - [ ] Our own USB IDs, from pid.codes
 - [ ] SWD reads at 50 MHz, to match writes
 - [ ] Faster block transfers, and the onboard UART above 2 Mbaud
+- [ ] MCU-Link Pro: the SPI, I2C and GPIO bridge
+- [ ] MCU-Link Pro: target power supply
+- [ ] MCU-Link Pro: energy measurement
+- [ ] MCU-Link Pro: the analog trace input
 - [ ] More probes
 - [ ] Our own open-hardware probe design
 
