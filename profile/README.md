@@ -4,8 +4,8 @@ We build open firmware for debug probes, with the tools to install and measure i
 
 A probe's firmware decides how fast it talks to a target, which protocols it speaks, and how
 reliably it reads what comes back. We publish the measurements behind the performance and behaviour
-claims we make, about our firmware and about the vendor's. The code that took them is published
-too, so anyone can reproduce them.
+claims we make, about our firmware and about the vendor's, and the benchmark code, so anyone can
+reproduce them.
 
 > [!NOTE]
 > The project is in development.
@@ -17,8 +17,12 @@ NXP's MCU-Link is the first probe we support.
 
 A CMSIS-DAP probe built on a dual-core LPC55S69.
 
-- **[mculink-verge](https://github.com/Escapement-Project/mculink-verge)**: open firmware for NXP's MCU-Link, with two-pin cJTAG and up to 2.4x stock firmware's memory-read throughput through probe-rs via SWD at 20MHz.
-- **[verge](https://github.com/Escapement-Project/verge)**: MCU-Link update tool, as a command line or a window.
+The firmware generates SWD and JTAG transfer code at runtime for the requested clock rate.
+At a fast clock rate it calibrates read sampling on attach. Calibration sweeps sampling latencies
+with DPIDR/IDCODE reads.
+
+- **[mculink-verge](https://github.com/Escapement-Project/mculink-verge)**: open firmware for NXP's MCU-Link, with two-pin cJTAG and up to 2.4x the stock firmware's memory-read throughput using probe-rs over SWD at 20 MHz.
+- **[verge](https://github.com/Escapement-Project/verge)**: MCU-Link update tool, with command-line and graphical interfaces.
 - **[mculink-bench](https://github.com/Escapement-Project/mculink-bench)**: measurements that compare our firmware with stock, and the tools that take them.
 - **[mculink-stock-notes](https://github.com/Escapement-Project/mculink-stock-notes)**: observations of what NXP's stock firmware does, on USB and on the wire.
 
@@ -27,20 +31,20 @@ A CMSIS-DAP probe built on a dual-core LPC55S69.
 Towards the first release, for the MCU-Link:
 
 - [x] CMSIS-DAP v2 over high-speed USB
-- [x] SWD and four-wire JTAG, with the transfer code built at runtime for the clock the host asks for
+- [x] SWD and four-wire JTAG
 - [x] Two-pin cJTAG, IEEE 1149.7 OScan1
-- [x] Read sample timing calibrated on attach at fast clock rates
+- [x] Read sampling calibration
 - [x] SWO capture, and the onboard UART as a USB serial port
 - [x] Updates without the ISP jumper, from stock and between our own builds
 - [x] Throughput and wire-clock comparisons with stock
-- [x] Update tool board detection, signature check, batch updates and flashing
+- [x] Update tool board detection, signature verification, batch updates and flashing
 - [ ] Firmware signing in CI for the updater
 - [ ] Update tool CI builds
 - [ ] MCU-Link Pro support
 - [ ] cJTAG OScan2 and OScan5 support
 - [ ] The first public release
 
-After it:
+Longer term:
 
 - [ ] Our own USB IDs, from pid.codes
 - [ ] SWD reads at 50 MHz, to match writes
