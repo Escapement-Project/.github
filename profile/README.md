@@ -33,7 +33,9 @@ Towards the first release, for the MCU-Link:
 - [x] SWO capture, and the onboard UART as a USB serial port
 - [x] Updates without the ISP jumper, from stock and between our own builds
 - [x] Throughput and wire-clock comparisons with stock
-- [ ] The update tool, with batch updates and signed releases
+- [x] Update tool board detection, signature check, batch updates and flashing
+- [ ] Firmware signing in CI for the updater
+- [ ] Update tool CI builds
 - [ ] MCU-Link Pro support
 - [ ] cJTAG OScan2 and OScan5 support
 - [ ] The first public release
