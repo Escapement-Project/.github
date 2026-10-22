@@ -68,8 +68,8 @@ Longer term:
 
 ## Using LLMs
 
-LLMs are welcome here: for exploring a codebase, debugging, experimenting, and writing code. You
-are responsible for the result, however it was written.
+LLMs are welcome here: to aid you in exploring a codebase, debugging, experimenting, and writing
+code. You are wholly responsible for the result, however it was written.
 
 - Read everything you submit, and be ready to explain any line of it.
 - Keep changes small. LLM output tends to be verbose. Every line it adds is one more for a reviewer
