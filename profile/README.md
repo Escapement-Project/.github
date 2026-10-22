@@ -38,7 +38,7 @@ For the MCU-Link and the MCU-Link Pro:
 
 - CMSIS-DAP v2 over high-speed USB
 - SWD and four-wire JTAG
-- Two-pin cJTAG, IEEE 1149.7 OScan1
+- Two-pin cJTAG, IEEE 1149.7 OScan1, OScan2, OScan5, and OScan6
 - Read sampling calibration
 - SWO capture, and the onboard UARTs as USB serial ports up to 19.2 Mbaud: one on the MCU-Link, two on the Pro
 - The Pro's status LEDs, one of them showing which wire is in use
@@ -53,12 +53,11 @@ Before the first release:
 - [ ] Firmware signing in CI for the updater
 - [ ] Update tool CI builds
 - [x] MCU-Link Pro support
-- [ ] cJTAG OScan2 and OScan5 support
+- [x] cJTAG OScan2, OScan5, and OScan6 support
 
 Longer term:
 
 - [ ] Our own USB IDs, from pid.codes
-- [ ] SWD reads at 50 MHz, to match writes
 - [ ] Faster block transfers
 - [ ] MCU-Link Pro: the SPI, I2C and GPIO bridge
 - [ ] MCU-Link Pro: target power supply
