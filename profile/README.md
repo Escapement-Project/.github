@@ -30,7 +30,8 @@ At the same 10 MHz rate, the Clang build reached 737 KiB/s, 41% faster than stoc
 ### Repositories
 
 - **[mculink-verge](https://github.com/Escapement-Project/mculink-verge)**: open firmware for NXP's MCU-Link.
-- **[verge](https://github.com/Escapement-Project/verge)**: MCU-Link update tool, with command-line and graphical interfaces.
+- **[verge-probe](https://github.com/Escapement-Project/verge-probe)**: `probe-rs`-based library exposing Verge-specific features.
+- **[verge](https://github.com/Escapement-Project/verge)**: MCU-Link command-line and graphical tools built on `verge-probe`.
 - **[mculink-bench](https://github.com/Escapement-Project/mculink-bench)**: measurements that compare our firmware with stock, and the tools that take them.
 - **[mculink-stock-notes](https://github.com/Escapement-Project/mculink-stock-notes)**: observations of what NXP's stock firmware does, on USB and on the wire.
 
