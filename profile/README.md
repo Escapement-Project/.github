@@ -23,8 +23,8 @@ At a fast clock rate it calibrates read sampling on attach. Calibration measures
 latency. It generates code for candidate latencies in turn, tests each with DPIDR or IDCODE reads,
 and keeps the one every result agrees with.
 
-4.39× stock firmware's peak probe-rs write throughput over SWD: 2,286 KiB/s at 50 MHz[^1]; stock[^2]
-peaks at 521 KiB/s at 10 MHz.
+4.39× stock firmware's peak probe-rs write throughput over SWD: 2,286 KiB/s at 50 MHz[^1]; stock
+peaks at 521 KiB/s at 10 MHz[^2].
 At the same 10 MHz rate, the Clang build reached 737 KiB/s, 41% faster than stock.
 
 ### Repositories
