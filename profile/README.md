@@ -23,7 +23,9 @@ At a fast clock rate it calibrates read sampling on attach. Calibration measures
 latency. It generates code for candidate latencies in turn, tests each with DPIDR or IDCODE reads,
 and keeps the one every result agrees with.
 
-Through probe-rs over SWD at 20 MHz, it reads memory up to 2.4× faster than the stock firmware.
+4.39× stock firmware's peak probe-rs write throughput over SWD: 2,286 KiB/s at 50 MHz[^1]; stock[^2]
+peaks at 521 KiB/s at 10 MHz.
+At the same 10 MHz rate, the Clang build reached 737 KiB/s, 41% faster than stock.
 
 ### Repositories
 
@@ -90,3 +92,6 @@ We publish under the Apache License 2.0.
 
 <sub>The Escapement Project is not affiliated with NXP or any other probe vendor.
 MCU-Link and LinkServer are NXP's names for its products.</sub>
+
+[^1]: When compiled with Clang. GCC peaks lower, at 2,130 KiB/s.
+[^2]: Stock figures were measured using NXP MCU-Link firmware version V3.174.
