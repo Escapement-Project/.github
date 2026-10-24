@@ -67,24 +67,6 @@ Longer term:
 - Evaluate MCU-Link On Board support
 - Our own open-hardware probe design
 
-## Using LLMs
-
-LLMs are welcome here: to aid you in exploring a codebase, debugging, experimenting, and writing
-code. You are wholly responsible for the result, however it was written.
-
-- Read everything you submit, and be ready to explain any line of it.
-- Keep changes small. LLM output tends to be verbose. Every line it adds is one more for a reviewer
-  to read. Remove anything unnecessary, in the code and especially in prose.
-- Make one change per pull request.
-- Write tests that check behaviour. A test that restates the implementation proves nothing.
-- Back any claim about speed, timing or hardware behaviour with the measurement that shows it. Say
-  what ran on real hardware and what did not. A model states a figure just as confidently when
-  nobody measured it.
-
-We use LLMs ourselves and hold our contributions to the same standard.
-
-This section borrows from [probe-rs's policy](https://github.com/probe-rs/probe-rs/blob/master/CONTRIBUTING.md#on-ai-contributions).
-
 ## Licence
 
 We publish under the Apache License 2.0.
