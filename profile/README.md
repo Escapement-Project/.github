@@ -44,7 +44,7 @@ For the MCU-Link and the MCU-Link Pro:
 - Two-pin cJTAG, IEEE 1149.7 OScan1, OScan2, OScan5, and OScan6
 - Read sampling calibration
 - SWO capture, and the onboard UARTs as USB serial ports up to 19.2 Mbaud: one on the MCU-Link, two on the Pro
-- The Pro's status LEDs, host GPIO bridge, target power and energy measurement
+- The Pro's status LEDs, host GPIO, SPI and I2C bridges, target power and energy measurement
 - Updates without the ISP jumper, from stock and between our own builds
 - Throughput and wire-clock comparisons with stock
 - Update tool board detection, signature verification, batch updates and flashing
@@ -62,7 +62,6 @@ Longer term:
 
 - Our own USB IDs, from pid.codes
 - Faster block transfers
-- MCU-Link Pro: host SPI and I2C bridges
 - MCU-Link Pro: the analog trace input
 - Evaluate MCU-Link On Board support
 - Our own open-hardware probe design
