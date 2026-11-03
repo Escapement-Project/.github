@@ -40,8 +40,8 @@ At the same 10 MHz rate, the Clang build reached 727 KiB/s, 40% faster than stoc
 For the MCU-Link and the MCU-Link Pro:
 
 - CMSIS-DAP v2 over high-speed USB
-- SWD and four-wire JTAG
-- Two-pin cJTAG, IEEE 1149.7 OScan1, OScan2, OScan5, and OScan6
+- SWD and JTAG
+- cJTAG, IEEE 1149.7 OScan1, OScan2, OScan5, and OScan6
 - Read sampling calibration
 - SWO capture, and the onboard UARTs as USB serial ports up to 19.2 Mbaud: one on the MCU-Link, two on the Pro
 - The Pro's status LEDs, host GPIO, SPI and I2C bridges, target power and energy measurement
