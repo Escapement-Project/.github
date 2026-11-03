@@ -2,7 +2,8 @@
 
 This guide applies to every repository in the Escapement Project: `mculink-verge`, `verge-probe`,
 `verge`, `mculink-bench` and `mculink-stock-notes`. Each README lists the repository's build steps
-and checks. The firmware's AGENTS.md has additional rules for changes to its code.
+and checks; verge keeps its checks in its CONTRIBUTING.md. The firmware's AGENTS.md has additional
+rules for changes to its code.
 
 ## Issues
 
@@ -23,25 +24,10 @@ wire problem, a capture or the host tool's log helps more than a description.
 For `mculink-verge`, run `uv run tools/gate.py`. It builds with GCC and Clang and checks each image
 against its emulator baselines.
 
-For `verge-probe`, run:
+For `verge-probe`, run the commands its README lists before a change is submitted.
 
-```sh
-cargo fmt --all -- --check
-cargo clippy --locked --all-targets --all-features -- -D warnings
-cargo test --locked --all-targets --all-features
-```
-
-For `verge`, run:
-
-```sh
-cargo fmt --all -- --check
-cargo clippy --workspace --all-targets --all-features -- -D warnings
-cargo clippy --workspace -- -D warnings
-cargo test --workspace
-```
-
-Its CI also checks that production builds exclude the simulator and compiles the Windows target.
-The README describes both checks.
+For `verge`, run the checks in its CONTRIBUTING.md, under "Testing". Its CI also checks that
+production builds exclude the simulator, and compiles the Windows target.
 
 For `mculink-bench`, check that the tools start with `uv run tools/throughput.py --help` and
 `uv run tools/wireclock.py --help`. Run `cargo clippy` in `tools/swd-throughput`. Rebuild the
