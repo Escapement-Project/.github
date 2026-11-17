@@ -68,9 +68,9 @@ Longer term:
 
 ## Licence
 
-We publish code under the Apache License 2.0, tickwave also under MIT. The recordings and the
-project's marks are under CC BY 4.0. Use the marks to refer to the project or its tools, not to
-brand another project.
+We publish code under the Apache License 2.0, tickwave and the website also under MIT. The
+recordings and the project's marks are under CC BY 4.0. Use the marks to refer to the project or its
+tools, not to brand another project.
 
 <sub>The Escapement Project is not affiliated with NXP or any other probe vendor.
 MCU-Link and LinkServer are NXP's names for its products.</sub>
