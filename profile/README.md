@@ -11,42 +11,45 @@ can reproduce them.
 > The project is in development.
 > The implementation, benchmarks, and supporting notes will be published with the first release.
 
-NXP's MCU-Link and MCU-Link Pro are the first probes we support.
+NXP's MCU-Link and MCU-Link Pro are the first probes we support. The docs and the measurements are
+on our website: [escapement-project.github.io](https://escapement-project.github.io).
 
-## MCU-Link
+## Verge
 
-A CMSIS-DAP probe built on a dual-core LPC55S69. One firmware image runs on both the MCU-Link
-and the MCU-Link Pro.
+Verge is our open firmware for NXP's MCU-Link, a CMSIS-DAP probe built on a dual-core LPC55S69.
+One Verge image runs on both the standalone MCU-Link and the MCU-Link Pro.
 
 The firmware generates SWD and JTAG transfer code at runtime for the requested clock rate.
 At a fast clock rate it calibrates read sampling on attach. Calibration measures the target's read
 latency. It generates code for candidate latencies in turn, tests each with DPIDR or IDCODE reads,
 and keeps the one every result agrees with.
 
-4.19× stock firmware's peak probe-rs write throughput over SWD: 2,181 KiB/s at 50 MHz[^1]; stock
-peaks at 520 KiB/s at 10 MHz[^2].
-At the same 10 MHz rate, the Clang build reached 727 KiB/s, 40% faster than stock.
+Through probe-rs, Verge writes over SWD at 3.39× the rate of NXP's firmware V3.174: 2,258 KiB/s at
+50 MHz[^1], against 667 KiB/s at 20 MHz, the fastest clock NXP's firmware reads right at[^2].
+At 10 MHz, Verge writes 744.8 KiB/s, 42% more than NXP's firmware.
 
 ### Repositories
 
-- **[mculink-verge](https://github.com/Escapement-Project/mculink-verge)**: open firmware for NXP's MCU-Link.
+- **[mculink-verge](https://github.com/Escapement-Project/mculink-verge)**: Verge, our open firmware for NXP's MCU-Link.
 - **[verge-probe](https://github.com/Escapement-Project/verge-probe)**: `probe-rs`-based library exposing Verge-specific features.
 - **[verge](https://github.com/Escapement-Project/verge)**: MCU-Link command-line and graphical tools built on `verge-probe`.
-- **[mculink-bench](https://github.com/Escapement-Project/mculink-bench)**: measurements that compare our firmware with stock, and the tools that take them.
-- **[mculink-stock-notes](https://github.com/Escapement-Project/mculink-stock-notes)**: observations of what NXP's stock firmware does, on USB and on the wire.
+- **[mculink-bench](https://github.com/Escapement-Project/mculink-bench)**: measurements that compare Verge with NXP's firmware, and the tools that take them.
+- **[mculink-recordings](https://github.com/Escapement-Project/mculink-recordings)**: logic analyser recordings of MCU-Link probes driving a target's debug pins, which the measurements cite.
+- **[mculink-stock-notes](https://github.com/Escapement-Project/mculink-stock-notes)**: observations of what NXP's firmware does, on USB and on the wire.
+- **[tickwave](https://github.com/Escapement-Project/tickwave)**: a web viewer for mixed-signal captures. Our pages show the recordings in it.
 
 ## Current capabilities
 
-For the MCU-Link and the MCU-Link Pro:
+For the standalone MCU-Link and the MCU-Link Pro:
 
 - CMSIS-DAP v2 over high-speed USB
 - SWD and JTAG
 - cJTAG, IEEE 1149.7 OScan1, OScan2, OScan5, and OScan6
 - Read sampling calibration
-- SWO capture, and the onboard UARTs as USB serial ports up to 19.2 Mbaud: one on the MCU-Link, two on the Pro
+- SWO capture, and the onboard UARTs as USB serial ports up to 30 Mbaud: one on the standalone MCU-Link, two on the Pro
 - The Pro's status LEDs, host GPIO, SPI and I2C bridges, target power and energy measurement
-- Updates without the ISP jumper, from stock and between our own builds
-- Throughput and wire-clock comparisons with stock
+- Updates without the ISP jumper, from NXP's firmware and between our own builds
+- Throughput and wire-clock comparisons with NXP's firmware
 - Update tool board detection, signature verification, batch updates and flashing
 
 ## Roadmap
@@ -75,6 +78,7 @@ tools, not to brand another project.
 <sub>The Escapement Project is not affiliated with NXP or any other probe vendor.
 MCU-Link and LinkServer are NXP's names for its products.</sub>
 
-[^1]: When compiled with Clang. GCC peaks lower, at 2,086 KiB/s.
-[^2]: Stock figures were measured using NXP MCU-Link firmware version V3.174, which failed at
-    20 MHz and above on this target.
+[^1]: When compiled with Clang. GCC peaks lower, at 2,176 KiB/s. Measured on 2026-11-04 with 4 KiB
+    writes to an MSPM0L1306, through a build of probe-rs with changes for speed. Every figure is on
+    the [measurements page](https://escapement-project.github.io/verge/measurements/).
+[^2]: Above 20 MHz NXP's firmware V3.174 reads wrong on this target, and its runs failed.
