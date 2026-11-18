@@ -1,14 +1,14 @@
 # Contributing
 
 This guide applies to every repository in the Escapement Project: `mculink-verge`, `verge-probe`,
-`verge`, `mculink-bench` and `mculink-stock-notes`. Each README lists the repository's build steps
-and checks; verge keeps its checks in its CONTRIBUTING.md. The firmware's AGENTS.md has additional
-rules for changes to its code.
+`verge`, `mculink-bench`, `mculink-stock-notes`, `mculink-recordings`, `tickwave`,
+`escapement-project.github.io` and this one, `.github`. Each README lists the repository's build
+steps and checks. verge keeps its checks in its CONTRIBUTING.md.
 
 ## Issues
 
 Say which probe, which firmware build and which host tool you used, and what you expected. For a
-wire problem, a capture or the host tool's log helps more than a description.
+wire problem, an analyser recording or the host tool's log helps more than a description.
 
 ## Pull requests
 
@@ -24,17 +24,29 @@ wire problem, a capture or the host tool's log helps more than a description.
 For `mculink-verge`, run `uv run tools/gate.py`. It builds with GCC and Clang and checks each image
 against its emulator baselines.
 
-For `verge-probe`, run the commands its README lists before a change is submitted.
+For `verge-probe`, run the commands its README lists before you submit a change.
 
 For `verge`, run the checks in its CONTRIBUTING.md, under "Testing". Its CI also checks that
 production builds exclude the simulator, and compiles the Windows target.
 
 For `mculink-bench`, check that the tools start with `uv run tools/throughput.py --help` and
 `uv run tools/wireclock.py --help`. Run `cargo clippy` in `tools/swd-throughput`. Rebuild the
-measurements page after changing its template or data; `page/README.md` has the command.
+measurements page after changing its template or data. `page/README.md` has the command.
 
 For `mculink-stock-notes`, check that each observation identifies the firmware version and how it
-was observed. Keep raw captures unchanged.
+was observed. Keep the raw files unchanged.
+
+For `mculink-recordings`, check each recording's annotations against it, such as
+`tickwave annotations check gcc-swd-reads.tickwave gcc-swd-reads.annotations.toml`.
+
+For `tickwave`, run `cargo fmt --check`, `cargo clippy --workspace --all-targets -- -D warnings`
+and `cargo test --workspace`, then `npm run check` in `web/`, which needs the two WASM builds first.
+Its README has the steps.
+
+For `escapement-project.github.io`, run `uv run design/build.py --check`, which checks that the
+generated files match their sources. Then copy in Verge's docs with `uv run .github/verge-docs.py .`
+and run `zola build`, which checks the links between pages. The docs come from checkouts of
+`mculink-verge`, `verge` and `verge-probe` beside the site's.
 
 ## Vendor firmware
 
@@ -44,8 +56,8 @@ firmware image.
 
 ## Using LLMs
 
-LLMs are welcome here: to aid you in exploring a codebase, debugging, experimenting, and writing
-code. You are wholly responsible for the result, however it was written.
+LLMs are welcome here, to help you explore a codebase, debug, experiment and write code. You are
+wholly responsible for the result, however it was written.
 
 - Read everything you submit, and be ready to explain any line of it.
 - Keep changes small. LLM output tends to be verbose. Every line it adds is one more for a reviewer
