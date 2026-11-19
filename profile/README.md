@@ -9,7 +9,6 @@ can reproduce them.
 
 > [!NOTE]
 > The project is in development.
-> The implementation, benchmarks, and supporting notes will be published with the first release.
 
 NXP's MCU-Link and MCU-Link Pro are the first probes we support. The docs and the measurements are
 on our website: [escapement-project.github.io](https://escapement-project.github.io).
@@ -53,15 +52,6 @@ For the standalone MCU-Link and the MCU-Link Pro:
 - Update tool board detection, signature verification, batch updates and flashing
 
 ## Roadmap
-
-Before the first release:
-
-- [ ] Firmware signing in CI for the updater
-- [ ] Update tool CI builds
-- [x] MCU-Link Pro support
-- [x] cJTAG OScan2, OScan5, and OScan6 support
-
-Longer term:
 
 - Our own USB IDs, from pid.codes
 - Faster block transfers
